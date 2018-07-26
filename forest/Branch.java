@@ -15,10 +15,10 @@ public class Branch {
   }
 
   public Node getParentNode(){
-    return parentNode;
+    return this.parentNode;
   }
 
   public Node getChildrenNode(){
-    return childrenNode;
+    return this.childrenNode;
   }
 }
