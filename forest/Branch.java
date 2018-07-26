@@ -5,11 +5,12 @@ import java.awt.Point;
 import java.io.File;
 import javax.swing.JFrame;
 
-public class Branch {
+public class Branch extends Object {
+  
   private Node parentNode;
   private Node childrenNode;
 
-  public void Branch(Node parentNode,Node childrenNode){
+  public Branch(Node parentNode,Node childrenNode){
     this.parentNode = parentNode;
     this.childrenNode = childrenNode;
   }

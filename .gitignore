@@ -50,3 +50,5 @@ bin
 *.log
 *.swp
 *.bak
+
+forest.jar
