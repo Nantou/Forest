@@ -1,3 +1,4 @@
+
 package forest;
 
 import javax.swing.JLabel;
@@ -11,7 +12,11 @@ public class Node extends JLabel {
     private ArrayList<Node> children;
 
     public Node(int number,String name){
-
+        this.nodeName = name;
+        this.nodeNumber = number;
+        this.parent = null;
+        this.children = new ArrayList<Node>();
+        this.visit = false;
     }
 
     public String getName() {
