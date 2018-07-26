@@ -10,14 +10,15 @@ public class Branch {
   private Node childrenNode;
 
   public void Branch(Node parentNode,Node childrenNode){
-    
+    this.parentNode = parentNode;
+    this.childrenNode = childrenNode;
   }
 
   public Node getParentNode(){
-
+    return parentNode;
   }
 
   public Node getChildrenNode(){
-
+    return childrenNode;
   }
 }
