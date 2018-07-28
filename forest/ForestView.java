@@ -44,7 +44,7 @@ public class ForestView extends View
 			Point aPoint = aNode.getLocation();
       Dimension aDimension = aNode.getSize();
       aGraphicsBuffer.setFont(aNode.getFont());
-      aGraphicsBuffer.drawString(aNode.getName(), aPoint.x + Const.RECT_LINE_THICK, aPoint.y + aNode.getSize().height - Const.RECT_LINE_THICK * 2 - 1); //1pxがずれる理由がまったくわかりませんでした。
+      aGraphicsBuffer.drawString(aNode.getName(), aPoint.x + Const.RECT_LINE_THICK, aPoint.y + aNode.getSize().height - Const.RECT_LINE_THICK * 2 - 1); 
       aGraphicsBuffer.drawRect(aPoint.x, aPoint.y, aDimension.width, aDimension.height);
 		}
 
