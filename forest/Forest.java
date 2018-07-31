@@ -42,31 +42,37 @@ public class Forest extends Object {
 
     private void setTypeData(int type,String text){
         if ( text.equals("nodes:") ) {return;}
+        if ( text.equals("nodes:") ) {return;}
         if ( text.equals("branches:") ) {return;}
 
-        if (type == 0) return;
-        else {
-            if (type == 1) {
-                String[] tmp = text.split(",");
-                int nodeNumber = Integer.parseInt(tmp[0]);
-                String nodeName = tmp[1];
-                Node aNode = new Node(nodeNumber, nodeName);
-                this.nodes.put(nodeNumber, aNode);
-            } else if (type == 2) {
-                String[] tmp = text.split(",");
-                Node parentNode = this.nodes.get(Integer.parseInt(tmp[0]));
-                Node childNode = this.nodes.get(Integer.parseInt(tmp[1]));
-                parentNode.setChildren(childNode);
-                childNode.setParent(parentNode);
-                this.nodes.put(Integer.parseInt(tmp[0]), parentNode);
-                this.nodes.put(Integer.parseInt(tmp[1]), childNode);
-                Branch aBranch = new Branch(parentNode, childNode);
-                this.branches.add(aBranch);
-            } else {
-                System.err.println("===========不正な値です。============");
-            }
+        if (type == 0)
+        {
+        }
+        else if (type == 1)
+        {
+            String[] tmp = text.split(",");
+            int nodeNumber = Integer.parseInt(tmp[0]);
+            String nodeName = tmp[1];
+            Node aNode = new Node(nodeNumber, nodeName);
+            this.nodes.put(nodeNumber, aNode);
+        }
+        else if (type == 2)
+        {
+            String[] tmp = text.split(",");
+            Node parentNode = this.nodes.get( Integer.parseInt(tmp[0]) );
+            Node childNode = this.nodes.get( Integer.parseInt(tmp[1]) );
 
-            return;
+            parentNode.setChildren(childNode);
+            childNode.setParent(parentNode);
+            this.nodes.put(Integer.parseInt(tmp[0]), parentNode);
+            this.nodes.put(Integer.parseInt(tmp[1]), childNode);
+
+            Branch aBranch = new Branch(parentNode, childNode);
+            this.branches.add(aBranch);
+        }
+        else
+        {
+            System.err.println("===========不正な値です。============");
         }
     }
 
@@ -74,7 +80,7 @@ public class Forest extends Object {
         this.model = model;
     }
 
-    public void setRoot(ArrayList<Node> rootNodes) {
+    public void setRoot() {
         this.nodes.values().forEach((node)->{
             if(Objects.isNull(node.getParent())) rootNodes.add(node);
         });
@@ -92,6 +98,8 @@ public class Forest extends Object {
     public ArrayList<Branch> getBranches() {
         return branches;
     }
+
+    public int getUnderLine(){ return underLine; }
 
     public void visit(Node root, Point aPoint){
         if(root.getVisit() == false){ root.setLocation(aPoint); }
