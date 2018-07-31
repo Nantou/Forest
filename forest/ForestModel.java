@@ -35,7 +35,7 @@ public class ForestModel extends Model {
         return aForest;
     }
 
-    public void mouseClicked(Point aPoint, MouseEvent aMouseEvent){
+    public void printNodeName(Point aPoint, MouseEvent aMouseEvent){
         HashMap<Integer,Node> nodes = aForest.getNodes();
         nodes.forEach((key,node) -> {
             if (node.getLocation().x > aPoint.x || node.getLocation().x + node.getWidth() < aPoint.x) return;
