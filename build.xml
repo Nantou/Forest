@@ -4,7 +4,8 @@
 
 	<property name="package" value="forest" />
 	<property name="mvc" value="mvc" />
-	<property name="packagenames" value="${package},${mvc}" />
+	<property name="utility" value="utility" />
+	<property name="packagenames" value="${package},${utility},${mvc}" />
 	<property name="destdir" value="./Classes" />
 	<property name="docdir" value="./JavaDoc" />
 	<property name="instdir" value="./${ant.project.name}.app/Contents/Resources/Java" />
@@ -33,6 +34,7 @@
 			<compilerarg value="-Xlint:all" />
 			<classpath>
 				<pathelement location="." />
+				<pathelement location="${utility}.jar" />
 				<pathelement location="${mvc}.jar" />
 			</classpath>
 		</javac>
@@ -44,6 +46,7 @@
 			jarfile="${package}.jar"
 			basedir="${destdir}"
 			manifest="${package}.mf">
+		    <zipfileset src="${utility}.jar" />	
 			<zipfileset src="${mvc}.jar" />
 		</jar>
 		<exec executable="date" spawn="false" />
