@@ -1,4 +1,3 @@
-
 package forest;
 
 import javax.swing.JLabel;
@@ -11,9 +10,9 @@ public class Node extends JLabel {
     private Node parent;
     private ArrayList<Node> children;
 
-    public Node(int number,String name){
-        this.nodeName = name;
-        this.nodeNumber = number;
+    public Node(int number, String name) {
+        this.nodename = name;
+        this.nodenumber = number;
         this.parent = null;
         this.children = new ArrayList<Node>();
         this.visit = false;
@@ -23,7 +22,7 @@ public class Node extends JLabel {
         return this.nodename;
     }
 
-    public int getNumber(){
+    public int getNumber() {
         return this.nodenumber;
     }
 
@@ -35,7 +34,7 @@ public class Node extends JLabel {
         return this.children;
     }
 
-    public boolean getVisit(){
+    public boolean getVisit() {
         return this.visit;
     }
 
