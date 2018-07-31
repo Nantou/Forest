@@ -21,7 +21,7 @@ public class ForestView extends View
         this.setSize(1500,1500);
     }
 
-    public void growTree(Graphics aGraphics)
+    public void paintComponent(Graphics aGraphics)
     {
         int width = this.getWidth();
         int height = this.getHeight();

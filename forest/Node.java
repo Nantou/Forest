@@ -1,7 +1,12 @@
 package forest;
 
 import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 @SuppressWarnings("serial")
 public class Node extends JLabel {
@@ -17,6 +22,11 @@ public class Node extends JLabel {
         this.parent = null;
         this.children = new ArrayList<Node>();
         this.visit = false;
+
+        this.setFont(new Font("Arial", Font.PLAIN, 12));
+        this.setText(this.nodename);
+        this.setBorder(new LineBorder(Color.black, 1));
+        this.setSize(this.getPreferredSize());
     }
 
     public String getName() {
@@ -43,8 +53,15 @@ public class Node extends JLabel {
         this.parent = parent;
     }
 
-    public void setChildren(Node children) {
-        this.children.add(children);
+    public void setChildren(Node child) {
+        this.children.add(child);
+        Collections.sort(this.children,new Comparator<Node>(){
+            @Override
+            public int compare(Node node1, Node node2){
+                return node1.getName().compareTo(node2.getName());
+            }
+        });
+        return;
     }
 
     public void setVisit(boolean visit) {
