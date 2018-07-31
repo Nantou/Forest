@@ -17,7 +17,7 @@ public class Forest extends Object {
     private HashMap <Integer,Node> nodes;
     private ArrayList<Branch> branches;
     private int underLine;
-
+    
     public Forest(){
         this.model = null;
         this.rootNodes = new ArrayList<Node>();
