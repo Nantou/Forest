@@ -29,14 +29,16 @@ public class Forest extends Object {
     public void readFile(File aFile) throws IOException {
         List<String> textList = StringUtility.readTextFromFile(aFile);
         System.out.println(textList.size());
-        textList.forEach((tmp) ->{
-            int type = 0; //0="trees:" 1="nodes:" 2="branches:"
+
+        int type = 0;
+        for (String tmp : textList)
+        {
             tmp = tmp.replaceAll(" ", "");
             System.out.println("= " + tmp);
             if ( tmp.equals("nodes:") ) {type = 1;}
             if ( tmp.equals("branches:") ) {type = 2;}
             this.setTypeData(type, tmp);
-        });
+        }
         return;
     }
 
@@ -118,12 +120,12 @@ public class Forest extends Object {
         int count=0;
         for(Node childNode : root.getChildren())
         {
-            while(childY <= this.underLine) {childY += 18;} //現在一番下のNodeより下に描くために位置を調整
-            this.visit(childNode,new Point(aPoint.x+root.getWidth() + 2, childY)); //子Nodeを探索
-            childNode.setVisit(true); //一度探索したら、座標を変更出来ないようにする
+            while(childY <= this.underLine) {childY += 18;}
+            this.visit(childNode,new Point(aPoint.x+root.getWidth() + 2, childY));
+            childNode.setVisit(true);
             count++;
             if(root.getChildren().size() > count){
-                childY += 2 + root.getHeight(); //次の子を現在の位置より、2pixel開けた位置に描画
+                childY += 2 + root.getHeight();
             }
         }
 
