@@ -3,6 +3,7 @@ package forest;
 import javax.swing.JLabel;
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class Node extends JLabel {
     private String nodename;
     private int nodenumber;
@@ -42,8 +43,8 @@ public class Node extends JLabel {
         this.parent = parent;
     }
 
-    public void setChildren(ArrayList<Node> children) {
-        this.children = children;
+    public void setChildren(Node children) {
+        this.children.add(children);
     }
 
     public void setVisit(boolean visit) {
