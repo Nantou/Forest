@@ -1,7 +1,5 @@
 package forest;
 
-import utility.StringUtility;
-
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -9,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+
+import utility.StringUtility;
 
 public class Forest extends Object {
 
