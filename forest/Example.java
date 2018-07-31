@@ -40,11 +40,11 @@ public class Example extends Object {
 
 		// MVCを作成する。
 		ForestModel aModel = new ForestModel(aFile);
-		ForestView aView = new ForestView(aModel);
-		ForestController aControler = new ForestController(aController);
+		ForestController aController = new ForestController();
+		ForestView aView = new ForestView(aModel, aController);
 
 		JFrame aWindow = new JFrame("forest");
-		aWindoe.getContentPane.add(aView);
+		aWindow.getContentPane.add(aView);
 		aWindow.setLayout(null);
 		aWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		aWindow.setMinimumSize(new Dimension(400, 300));
