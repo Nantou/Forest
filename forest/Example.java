@@ -31,7 +31,7 @@ public class Example extends Object {
 		ForestView aView = new ForestView(aModel, aController);
 
 		JFrame aWindow = new JFrame("forest");
-		aWindow.getContentPane.add(aView);
+        aWindow.getContentPane().add(aView);
 		aWindow.setLayout(null);
 		aWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		aWindow.setMinimumSize(new Dimension(400, 300));
