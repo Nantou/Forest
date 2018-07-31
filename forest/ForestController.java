@@ -7,37 +7,43 @@ import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 
-public class ForestController extends Controller
-{
-    protected ForestView view;
+/**
+ * フォレストコントローラ
+ */
 
-    protected ForestModel model;
+public class ForestController extends Controller {
+    protected ForestView aView;
+
+    protected ForestModel aModel;
 
     protected Point current;
 
     protected Point previous;
 
-    public ForestController()
-    {
+    /**
+     * フォレストコントローラのコンストラクタ
+     */
+    public ForestController() {
         super();
-        view = null;
-        model = null;
-        return;        
-    }
-
-    public void mouseClicked(MouseEvent aMouseEvent)
-    {
-        Point aPoint = aMouseEvent.getPoint();
-        aPoint.translate(view.scrollAmount().x, view.scrollAmount().y);
-        System.out.println(aPoint);
-        /*このあたりで他のところにメッセージを投げる*/
+        aView = null;
+        aModel = null;
         return;
     }
 
-    public void mouseDragged(MouseEvent aMouseEvent)
-    {
+    /**
+     * マウスでクリックした部分のポインタにnodeが存在するかを確認する
+     */
+    public void mouseClicked(MouseEvent aMouseEvent) {
+        Point aPoint = aMouseEvent.getPoint();
+        aPoint.translate(view.scrollAmount().x, view.scrollAmount().y);
+        // System.out.println(aPoint);
+        aModel.printNodeName(aPoint, aMouseEvent);
+        return;
+    }
+
+    public void mouseDragged(MouseEvent aMouseEvent) {
         Cursor aCursor = Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR);
-        Component aComponent = (Component)aMouseEvent.getSource();
+        Component aComponent = (Component) aMouseEvent.getSource();
         aComponent.setCursor(aCursor);
         current = aMouseEvent.getPoint();
         int x = current.x - previous.x;
