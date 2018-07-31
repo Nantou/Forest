@@ -12,9 +12,6 @@ import java.awt.event.MouseEvent;
  */
 
 public class ForestController extends Controller {
-    protected ForestView aView;
-
-    protected ForestModel aModel;
 
     protected Point current;
 
@@ -25,9 +22,6 @@ public class ForestController extends Controller {
      */
     public ForestController() {
         super();
-        aView = null;
-        aModel = null;
-        return;
     }
 
     /**
@@ -36,22 +30,14 @@ public class ForestController extends Controller {
     public void mouseClicked(MouseEvent aMouseEvent) {
         Point aPoint = aMouseEvent.getPoint();
         aPoint.translate(view.scrollAmount().x, view.scrollAmount().y);
-        // System.out.println(aPoint);
+        ForestModel aModel = (ForestModel)(this.model);
         aModel.printNodeName(aPoint, aMouseEvent);
         return;
     }
 
     public void mouseDragged(MouseEvent aMouseEvent) {
-        Cursor aCursor = Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR);
-        Component aComponent = (Component) aMouseEvent.getSource();
-        aComponent.setCursor(aCursor);
-        current = aMouseEvent.getPoint();
-        int x = current.x - previous.x;
-        int y = current.y - previous.y;
-        Point point = new Point(x, y);
-        view.scrollBy(point);
-        view.repaint();
-        previous = current;
+        super.mouseDragged(aMouseEvent);
+
         return;
     }
 

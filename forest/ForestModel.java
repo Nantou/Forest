@@ -22,6 +22,7 @@ public class ForestModel extends Model {
         }catch (IOException anException){
             anException.printStackTrace();
         }
+        aForest.setRoot();
         Map<Integer,Node> nodes = this.aForest.getNodes();
         nodes.forEach(ForestModel::setNodeLocation);
     }
@@ -36,8 +37,10 @@ public class ForestModel extends Model {
     }
 
     public void printNodeName(Point aPoint, MouseEvent aMouseEvent){
+        System.out.println("test");
         HashMap<Integer,Node> nodes = aForest.getNodes();
         nodes.forEach((key,node) -> {
+            System.out.println("node");
             if (node.getLocation().x > aPoint.x || node.getLocation().x + node.getWidth() < aPoint.x) return;
             if (node.getLocation().y > aPoint.y || node.getLocation().y + node.getHeight() < aPoint.y) return;
             System.out.println(node.getName());
